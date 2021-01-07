@@ -86,8 +86,10 @@ def Perspective_Transform(image, corners):
     # Return the transformed image
     transformed_image = cv2.warpPerspective(image, matrix, (width, width))
 
-    transformed_image = cv2.resize(transformed_image, (252, 252), interpolation= cv2.INTER_AREA)
+    transformed_image = cv2.resize(transformed_image, (351, 351), interpolation= cv2.INTER_AREA)
 
     return transformed_image
+
+
 
 

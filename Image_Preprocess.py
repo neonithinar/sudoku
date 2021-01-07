@@ -1,17 +1,23 @@
-import os
 import cv2
 import numpy as np
 import Preprocessing
+import matplotlib.pyplot as plt
+import digit_identifier
 
-
-
-class ImgPrep:
+class Preprocess:
     """ Aim of this class file is to accept an image as imput and do all the preprocessing
     involving around it involving cv2"""
     def __init__(self, img_path):
         """Initialisation: self, image_path"""
         self.image = cv2.imread(img_path, 0)
         self.original = np.copy(self.image)
+        self.extract_grid = False
+    @staticmethod
+    def show_image(image):
+        cv2.imshow("test image", image)
+        cv2.waitKey(0)
+        cv2.destroyAllWindows()
+
 
 
     def extractPuzzleImg(self):
@@ -29,12 +35,27 @@ class ImgPrep:
         for c in cnts:
             peri = cv2.arcLength(c, True)
             approx = cv2.approxPolyDP(c, 0.015 * peri, True)
-            print(approx)
+            # print(approx)
 
             transformed = Preprocessing.Perspective_Transform(gray, approx)
             break
 
         return transformed
+    @staticmethod
+    def image_slicer(image):
+        edge = image.shape[0] // 9
+        for i in range(0, 8):
+            for j in range(0, 8):
+                temp_image = image[(i * edge):((i + 1) * edge), (j * edge): ((j + 1) * edge)]
+                # temp_image = np.mean(temp_image, axis=2)
+                # plt.imshow(temp_image)
+                # plt.show()
+                # return temp_image
+                number = digit_identifier.predictor(temp_image)
+                print("prediction is :", number)
+
+
+
 
 
 
