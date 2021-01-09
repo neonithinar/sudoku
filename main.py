@@ -4,16 +4,19 @@ import os
 # import matplotlib.pyplot as plt
 
 
-TEST_IMAGE_PATH = "/home/nithin/miniconda3/envs/Deep_learning/pycharm_projects/sudoku/Sample_images/sample5.jpg"
+TEST_IMAGE_PATH = "/home/nithin/miniconda3/envs/Deep_learning/pycharm_projects/sudoku/Sample_images/sample3.png"
 
 prep = Image_Preprocess.readImage(TEST_IMAGE_PATH)
 Image_Preprocess.show_image(prep)
 transformed = Image_Preprocess.extractPuzzleImg(prep)
 Image_Preprocess.show_image(transformed)
 
-print(transformed.shape)
+# split the image to smallest squares
 
-# temp_image = Image_Preprocess.Preprocess.image_slicer(transformed)
+sliced_image = Image_Preprocess.image_slicer(transformed)
+print(len(sliced_image))
+
+
 
 
 
