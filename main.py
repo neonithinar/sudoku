@@ -1,5 +1,7 @@
 import Image_Preprocess
 import os
+import numpy as np
+import model_train
 # import cv2
 # import matplotlib.pyplot as plt
 
@@ -16,7 +18,8 @@ Image_Preprocess.show_image(transformed)
 sliced_image = Image_Preprocess.image_slicer(transformed)
 print(len(sliced_image))
 Image_Preprocess.show_image(sliced_image[63])
-
+prediction = model_train.predict_cell(sliced_image[63])
+print(prediction, "\n", np.argmax(prediction))
 
 
 

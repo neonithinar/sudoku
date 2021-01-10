@@ -145,12 +145,13 @@ def image_slicer(image):
         columns = np.hsplit(row, 9)
         for square in columns:
             square = cv2.resize(square, (28, 28), interpolation=cv2.INTER_AREA)
-            square = cv2.bitwise_not(square)
+            square = cv2.adaptiveThreshold(square, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY_INV, 11, 4)
+            # square = cv2.bitwise_not(square)
             squares.append(square)
     return squares
 
 
-# todo create digit identifier preprocessing to 28*28 with adaptive theresholding for each square
+# todo check the square later for important image transformation functions if necessary. add adaptive thresholding to the function
 
 
 
