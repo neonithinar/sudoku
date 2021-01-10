@@ -100,6 +100,9 @@ def extractPuzzleImg(image):
     """Extracts the puzzle from the image and returns the square image of the whole puzzle
     transformed image = ImgPrep.ExtractPuzzleImg(image_path)"""
     gray = image
+    show_image(gray)
+    gray = cv2.addWeighted(gray, 1, np.zeros(gray.shape, gray.dtype), 0, 20)
+    show_image(gray)
     print("shape of the gray image", gray.shape)
     blur = cv2.medianBlur(gray, 3)
 
@@ -141,6 +144,8 @@ def image_slicer(image):
     for row in rows:
         columns = np.hsplit(row, 9)
         for square in columns:
+            square = cv2.resize(square, (28, 28), interpolation=cv2.INTER_AREA)
+            square = cv2.bitwise_not(square)
             squares.append(square)
     return squares
 

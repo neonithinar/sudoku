@@ -7,7 +7,7 @@ import os
 TEST_IMAGE_PATH = "/home/nithin/miniconda3/envs/Deep_learning/pycharm_projects/sudoku/Sample_images/sample3.png"
 
 prep = Image_Preprocess.readImage(TEST_IMAGE_PATH)
-Image_Preprocess.show_image(prep)
+# Image_Preprocess.show_image(prep)
 transformed = Image_Preprocess.extractPuzzleImg(prep)
 Image_Preprocess.show_image(transformed)
 
@@ -15,6 +15,7 @@ Image_Preprocess.show_image(transformed)
 
 sliced_image = Image_Preprocess.image_slicer(transformed)
 print(len(sliced_image))
+Image_Preprocess.show_image(sliced_image[63])
 
 
 
