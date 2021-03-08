@@ -18,6 +18,6 @@ Sudoku puzzle solver app that can identify the sudoku puzzle from the given imag
   ### Solving the puzzle
   Backtracking is a simple to implement and robust algorithm to solve sudoku puzzles of any difficulty. The algorithm works by going through all the empty cells in the puzzle from top-left to bottom-right corner. filling them up with possible correct digit insertions by checking the row, column and the square for possible mismatches. If the insert was found to conflict with any previous insertion, the algorithm back-tracks its steps to that step and continues to solve the puzzle after inserting the conflicted cell with a next possible match. After solving the puzzle final result is displayed
   
- [Backtracking in action](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Sudoku_solved_by_bactracking.gif/260px-Sudoku_solved_by_bactracking.gif)
+![Backtracking in action](https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Sudoku_solved_by_bactracking.gif/260px-Sudoku_solved_by_bactracking.gif)
  
  For more info on backtracking, click [here...](https://en.wikipedia.org/wiki/Sudoku_solving_algorithms)
