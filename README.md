@@ -8,7 +8,8 @@ Sudoku puzzle solver app that can identify the sudoku puzzle from the given imag
 
 ### Puzzle extraction:
   Puzzle is extracted from the given noisy image and sliced to puzzle square using openCV operations like adaptive thresholding, prespective transformations and identifying largest contours
-  < Add images >
+![before and after preprocess](https://raw.githubusercontent.com/neonithinar/sudoku/master/Sample_images/side%20by%20side.png)
+
   Image is sliced and indexed into the 81 small squares
   
   These images are fed into a pretrained neural network model trained on the MNIST dataset (99.8% test accuracy) to identify each of the digits in the image
